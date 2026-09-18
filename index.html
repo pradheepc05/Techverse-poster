@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECHVERSE 2026 | Annamalai University</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: "Inter", Arial, sans-serif;
+            background: #d9dde3;
+            color: #fff;
+        }
+
+        .poster {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            padding: 12mm;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 88% 8%, rgba(0, 201, 167, .18), transparent 25%),
+                radial-gradient(circle at 8% 68%, rgba(72, 85, 106, .20), transparent 30%),
+                linear-gradient(145deg, #091018, #131e2b 55%, #0a121a);
+        }
+
+        .poster::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+            background-size: 18px 18px;
+            pointer-events: none;
+        }
+
+        .poster::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            right: -80px;
+            bottom: 60px;
+            border: 1px solid rgba(0, 201, 167, .18);
+            border-radius: 50%;
+            box-shadow: 0 0 0 25px rgba(0, 201, 167, .025), 0 0 0 50px rgba(0, 201, 167, .02);
+        }
+
+        .content {
+            position: relative;
+            z-index: 2
+        }
+
+        .header {
+            text-align: center;
+            padding-bottom: 5mm;
+            border-bottom: 1px solid rgba(255, 255, 255, .14);
+        }
+
+        .university {
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 1.8px;
+        }
+
+        .department {
+            margin-top: 4px;
+            color: #aeb8c5;
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6mm 0 5mm;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 5px 12px;
+            border: 1px solid rgba(255, 255, 255, .16);
+            border-radius: 50px;
+            color: #00c9a7;
+            font-size: 6.5px;
+            font-weight: 800;
+            letter-spacing: 1.7px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin-top: 8px;
+            font-size: 42px;
+            line-height: .95;
+            font-weight: 900;
+            letter-spacing: -2.5px;
+        }
+
+        .hero h1 span {
+            color: #00c9a7
+        }
+
+        .tagline {
+            margin-top: 8px;
+            color: #e0e6ed;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 2.7px;
+        }
+
+        .subtitle {
+            margin-top: 6px;
+            color: #8e9aaa;
+            font-size: 6.5px;
+            font-weight: 600;
+            letter-spacing: 1.1px;
+            text-transform: uppercase;
+        }
+
+        .campus-badge {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 5px 13px;
+            background: rgba(0, 201, 167, .08);
+            border: 1px solid rgba(0, 201, 167, .32);
+            border-radius: 5px;
+            color: #00c9a7;
+            font-size: 6.5px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 7px;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, .11);
+        }
+
+        .section-title h2 {
+            font-size: 8px;
+            font-weight: 900;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+        }
+
+        .section-icon {
+            width: 19px;
+            height: 19px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            background: rgba(0, 201, 167, .10);
+            color: #00c9a7;
+            font-size: 8px;
+        }
+
+        .competitions,
+        .details,
+        .requirements,
+        .contact,
+        .important {
+            margin-bottom: 4.5mm;
+        }
+
+        .competition-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+        }
+
+        .competition {
+            padding: 8px;
+            min-height: 68px;
+            border: 1px solid rgba(255, 255, 255, .09);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, .035);
+        }
+
+        .competition:last-child {
+            grid-column: span 2
+        }
+
+        .competition-name {
+            color: #00c9a7;
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: .5px;
+        }
+
+        .competition-title {
+            margin-top: 3px;
+            color: #fff;
+            font-size: 6.7px;
+            font-weight: 700;
+        }
+
+        .competition-tagline {
+            margin-top: 3px;
+            color: #9faab8;
+            font-size: 5.8px;
+            font-style: italic;
+        }
+
+        .competition-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+            margin-top: 5px;
+        }
+
+        .competition-items span {
+            padding: 3px 5px;
+            background: rgba(255, 255, 255, .05);
+            border-radius: 4px;
+            color: #cbd3dc;
+            font-size: 5.7px;
+            font-weight: 600;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+        }
+
+        .detail {
+            padding: 7px;
+            min-height: 45px;
+            border-radius: 7px;
+            border: 1px solid rgba(255, 255, 255, .075);
+            background: rgba(255, 255, 255, .035);
+        }
+
+        .detail.full {
+            grid-column: span 3
+        }
+
+        .detail-label {
+            margin-bottom: 3px;
+            color: #7f8b9b;
+            font-size: 5.4px;
+            font-weight: 800;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .detail-value {
+            color: #fff;
+            font-size: 7.1px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .highlight {
+            color: #00c9a7 !important
+        }
+
+        .team-note {
+            margin-top: 5px;
+            padding: 7px 9px;
+            border-left: 3px solid #00c9a7;
+            border-radius: 0 6px 6px 0;
+            background: rgba(0, 201, 167, .045);
+            color: #c5ced8;
+            font-size: 6px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .lower-grid {
+            display: grid;
+            grid-template-columns: 1.25fr .75fr;
+            gap: 7px;
+            margin-bottom: 4.5mm;
+        }
+
+        .card {
+            padding: 9px;
+            border: 1px solid rgba(255, 255, 255, .09);
+            border-radius: 9px;
+            background: rgba(255, 255, 255, .035);
+        }
+
+        .card-title {
+            margin-bottom: 7px;
+            font-size: 7.5px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .registration {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .qr {
+            width: 64px;
+            height: 64px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 6px;
+            color: #101820;
+            font-size: 6.5px;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .qr-image {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+            border-radius: 6px;
+            background: #fff;
+        }
+
+        .register-text strong {
+            display: block;
+            color: #00c9a7;
+            font-size: 8.5px;
+            font-weight: 900;
+        }
+
+        .register-text p {
+            margin-top: 3px;
+            color: #adb7c3;
+            font-size: 6px;
+            line-height: 1.4;
+        }
+
+        .free {
+            display: inline-block;
+            margin-top: 5px;
+            padding: 4px 6px;
+            background: #00c9a7;
+            border-radius: 4px;
+            color: #071014;
+            font-size: 5.8px;
+            font-weight: 900;
+        }
+
+        .prize-text {
+            color: #fff;
+            font-size: 8.5px;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .prize-sub {
+            margin-top: 4px;
+            color: #00c9a7;
+            font-size: 6px;
+            font-weight: 800;
+            line-height: 1.35;
+        }
+
+        .snacks {
+            margin-top: 7px;
+            padding-top: 6px;
+            border-top: 1px solid rgba(255, 255, 255, .09);
+            color: #cbd3dc;
+            font-size: 6px;
+            font-weight: 700;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
+        }
+
+        .requirement {
+            padding: 7px 5px;
+            border: 1px solid rgba(255, 255, 255, .075);
+            border-radius: 7px;
+            background: rgba(255, 255, 255, .035);
+            text-align: center;
+        }
+
+        .requirement-icon {
+            margin-bottom: 4px;
+            color: #00c9a7;
+            font-size: 9px;
+            font-weight: 900;
+        }
+
+        .requirement-text {
+            color: #c5ced8;
+            font-size: 5.4px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+        }
+
+        .contact-person {
+            padding: 7px 9px;
+            border-left: 3px solid #00c9a7;
+            border-radius: 0 6px 6px 0;
+            background: rgba(0, 201, 167, .045);
+        }
+
+        .contact-label {
+            margin-bottom: 3px;
+            color: #7f8b99;
+            font-size: 5px;
+            font-weight: 800;
+            letter-spacing: .7px;
+            text-transform: uppercase;
+        }
+
+        .contact-phone {
+            color: #fff;
+            font-size: 6.5px;
+            font-weight: 800;
+        }
+
+        .important-box {
+            padding: 8px 10px;
+            border: 1px solid rgba(231, 197, 106, .15);
+            border-radius: 6px;
+            background: rgba(231, 197, 106, .035);
+        }
+
+        .important-title {
+            margin-bottom: 3px;
+            color: #e3c36b;
+            font-size: 6px;
+            font-weight: 900;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .important-text {
+            color: #aeb7c2;
+            font-size: 5.4px;
+            line-height: 1.4;
+        }
+
+        .footer {
+            padding-top: 4mm;
+            border-top: 1px solid rgba(255, 255, 255, .12);
+            text-align: center;
+        }
+
+        .footer-main {
+            color: #fff;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: .7px;
+        }
+
+        .footer-tagline {
+            margin-top: 3px;
+            color: #00c9a7;
+            font-size: 6px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+        }
+
+        .organized {
+            margin-top: 5px;
+            color: #8995a4;
+            font-size: 5.3px;
+            line-height: 1.4;
+        }
+
+        .organized strong {
+            color: #d4dbe3
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                background: #fff
+            }
+
+            .poster {
+                width: 210mm;
+                min-height: 297mm;
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        @media(max-width:800px) {
+            .poster {
+                transform-origin: top left;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="poster">
+        <div class="content">
+
+            <header class="header">
+                <div class="university">ANNAMALAI UNIVERSITY</div>
+                <div class="department">Department of Computer and Information Science</div>
+            </header>
+
+            <section class="hero">
+                <div class="hero-label">One-Day Technology &amp; Innovation Competition</div>
+
+                <h1>TECHVERSE <span>2026</span></h1>
+
+                <div class="tagline">EXPLORE • CREATE • INNOVATE</div>
+
+                <div class="campus-badge">ON-CAMPUS COMPETITION</div>
+            </section>
+
+            <section class="competitions">
+                <div class="section-title">
+                    <div class="section-icon">◆</div>
+                    <h2>5 Exciting Competitions</h2>
+                </div>
+
+                <div class="competition-grid">
+
+                    <div class="competition">
+                        <div class="competition-name">01 — TECHNOVA</div>
+                        <div class="competition-title">Technical Challenge</div>
+                        <div class="competition-tagline">Think Fast. Solve Smart.</div>
+                        <div class="competition-items">
+                            <span>TechQuiz</span>
+                            <span>DebugX</span>
+                        </div>
+                    </div>
+
+                    <div class="competition">
+                        <div class="competition-name">02 — PROMPTX</div>
+                        <div class="competition-title">Prompt Engineering Competition</div>
+                        <div class="competition-tagline">Prompt It. Create It. Master It.</div>
+                        <div class="competition-items">
+                            <span>Prompt Battle</span>
+                            <span>Prompt-to-Product</span>
+                            <span>Prompt Defence</span>
+                        </div>
+                    </div>
+
+                    <div class="competition">
+                        <div class="competition-name">03 — PROJECTX LIVE</div>
+                        <div class="competition-title">Project Presentation</div>
+                        <div class="competition-tagline">Think It. Build It. Present It.</div>
+                        <div class="competition-items">
+                            <span>IDEA → PROJECT → PRESENTATION</span>
+                        </div>
+                    </div>
+
+                    <div class="competition">
+                        <div class="competition-name">04 — AI CINEVERSE</div>
+                        <div class="competition-title">AI Short Film Competition</div>
+                        <div class="competition-tagline">Imagine It. Create It. Inspire It.</div>
+                        <div class="competition-items">
+                            <span>AI Storytelling Challenge</span>
+                        </div>
+                    </div>
+
+                    <div class="competition">
+                        <div class="competition-name">05 — TECHTALKX</div>
+                        <div class="competition-title">Technical Communication Competition</div>
+                        <div class="competition-tagline">Speak Tech. Share Ideas. Inspire Minds.</div>
+                        <div class="competition-items">
+                            <span>Technical Talk</span>
+                            <span>Tech Defence</span>
+                            <span>Q&amp;A</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="details">
+                <div class="section-title">
+                    <div class="section-icon">◆</div>
+                    <h2>Event Details</h2>
+                </div>
+
+                <div class="details-grid">
+
+                    <div class="detail">
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value highlight">30 SEPTEMBER 2026</div>
+                    </div>
+
+                    <div class="detail">
+                        <div class="detail-label">Time</div>
+                        <div class="detail-value">9:00 AM – 4:30 PM</div>
+                    </div>
+
+                    <div class="detail">
+                        <div class="detail-label">Registration Closes</div>
+                        <div class="detail-value">23 SEPTEMBER 2026</div>
+                    </div>
+
+                    <div class="detail full">
+                        <div class="detail-label">Venue</div>
+                        <div class="detail-value">Department of Computer and Information Science</div>
+                    </div>
+
+                    <div class="detail">
+                        <div class="detail-label">Event Type</div>
+                        <div class="detail-value">On-Campus Competition</div>
+                    </div>
+
+                    <div class="detail">
+                        <div class="detail-label">Team Size</div>
+                        <div class="detail-value">4 Members per Team</div>
+                    </div>
+
+                    <div class="detail">
+                        <div class="detail-label">Registration</div>
+                        <div class="detail-value highlight">FREE</div>
+                    </div>
+
+                </div>
+
+                <div class="team-note">
+                    All team members are expected to participate and contribute equally to the competition.
+                </div>
+            </section>
+
+            <section class="lower-grid">
+
+                <div class="card">
+                    <div class="card-title">Registration</div>
+
+                    <div class="registration">
+
+                        <!-- Replace this placeholder with your QR image:
+            <img src="qr-code.png" class="qr-image" alt="Registration QR Code">
+            -->
+
+                        <div class="qr">
+                            QR<br>CODE
+                        </div>
+
+                        <div class="register-text">
+                            <strong>FREE REGISTRATION</strong>
+                            <p>Scan the QR Code to Register</p>
+                            <span class="free">DEADLINE: 23 SEPTEMBER 2026</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Prizes &amp; Certificates</div>
+
+                    <div class="prize-text">
+                        EXCITING PRIZES
+                    </div>
+
+                    <div class="prize-sub">
+                        CERTIFICATES FOR<br>
+                        WINNERS &amp; RUNNERS-UP
+                    </div>
+
+                    <div class="snacks">
+                        ● Snacks Provided
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="requirements">
+                <div class="section-title">
+                    <div class="section-icon">◆</div>
+                    <h2>Participant Requirements</h2>
+                </div>
+
+                <div class="requirements-grid">
+
+                    <div class="requirement">
+                        <div class="requirement-icon">ID</div>
+                        <div class="requirement-text">College ID</div>
+                    </div>
+
+                    <div class="requirement">
+                        <div class="requirement-icon">☎</div>
+                        <div class="requirement-text">Mobile Phone</div>
+                    </div>
+
+                    <div class="requirement">
+                        <div class="requirement-icon">▣</div>
+                        <div class="requirement-text">Laptop &amp; Charger</div>
+                    </div>
+
+                    <div class="requirement">
+                        <div class="requirement-icon">⌁</div>
+                        <div class="requirement-text">Internet Connection</div>
+                    </div>
+
+                    <div class="requirement">
+                        <div class="requirement-icon">⚙</div>
+                        <div class="requirement-text">Required Software / AI Tools</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="contact">
+                <div class="section-title">
+                    <div class="section-icon">◆</div>
+                    <h2>Contact &amp; Enquiries</h2>
+                </div>
+
+                <div class="contact-box">
+
+                    <div class="contact-person">
+                        <div class="contact-label">Student Coordinator 01</div>
+                        <div class="contact-phone">[Contact Number]</div>
+                    </div>
+
+                    <div class="contact-person">
+                        <div class="contact-label">Student Coordinator 02</div>
+                        <div class="contact-phone">[Contact Number]</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="important">
+                <div class="important-box">
+
+                    <div class="important-title">General Rule</div>
+
+                    <div class="important-text">
+                        The rules and instructions announced by the organizing committee
+                        for each competition are final and must be followed by all participants.
+                    </div>
+
+                </div>
+            </section>
+
+            <footer class="footer">
+
+                <div class="footer-main">
+                    BE PART OF THE FUTURE OF TECHNOLOGY
+                </div>
+
+                <div class="footer-tagline">
+                    TECHVERSE 2026 • EXPLORE • CREATE • INNOVATE
+                </div>
+
+                <div class="organized">
+                    Organized by<br>
+                    <strong>Computer and Information Science Student Association</strong><br>
+                    <strong>ANNAMALAI UNIVERSITY</strong>
+                </div>
+
+            </footer>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
